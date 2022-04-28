@@ -5,6 +5,9 @@ const express = require('express')
 // initialize app variable
 const app = express()
 
+// import router
+app.use('/places', require('./controllers/places'))
+
 // homepage
 app.get('/', (req, res) => {
     res.send('Hello world!')
