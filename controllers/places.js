@@ -2,9 +2,23 @@ const req = require('express/lib/request')
 
 const router = require('express').Router()
 
+
 //GET
 router.get('/', (req, res) => {
-    res.send('GET /places')
+    let places = [{
+        name: 'H-Thai-ML',
+        city: 'Seattle',
+        state: 'WA',
+        cuisines: 'Thai, Pan-Asian',
+        pic: 'http://placekitten.com/250/250'
+    }, {
+        name: 'Coding Cat Cafe',
+        city: 'Phoenix',
+        state: 'AZ',
+        cuisines: 'Coffee, Bakery',
+        pic: 'http://placekitten.com/250/250'
+    }]
+    res.render('../views/places/index', {places})
 })
 
 router.get('/new', (req, res) => {
@@ -18,6 +32,8 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     res.send(`This is GET /places/${req.params.id}/edit`)
 })
+
+
 
 //POST
 router.post('/', (req, res) => {
