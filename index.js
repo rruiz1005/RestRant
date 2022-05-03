@@ -6,8 +6,10 @@ const express = require('express')
 const app = express()
 
 //define view engine
+app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
 // import router
 app.use('/places', require('./controllers/places'))
