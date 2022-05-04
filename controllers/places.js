@@ -1,23 +1,24 @@
 const req = require('express/lib/request')
 
 const router = require('express').Router()
+const places = require('../models/places.js')
 
 
 //GET
 router.get('/', (req, res) => {
-    let places = [{
-        name: 'H-Thai-ML',
-        city: 'Seattle',
-        state: 'WA',
-        cuisines: 'Thai, Pan-Asian',
-        pic: '/images/Thai.jpg'
-    }, {
-        name: 'Coding Cat Cafe',
-        city: 'Phoenix',
-        state: 'AZ',
-        cuisines: 'Coffee, Bakery',
-        pic: '/images/coffeeshop.jpg'
-    }]
+    // let places = [{
+    //     name: 'H-Thai-ML',
+    //     city: 'Seattle',
+    //     state: 'WA',
+    //     cuisines: 'Thai, Pan-Asian',
+    //     pic: '/images/Thai.jpg'
+    // }, {
+    //     name: 'Coding Cat Cafe',
+    //     city: 'Phoenix',
+    //     state: 'AZ',
+    //     cuisines: 'Coffee, Bakery',
+    //     pic: '/images/coffeeshop.jpg'
+    // }]
     res.render('../views/places/index', {places})
 })
 
@@ -37,8 +38,18 @@ router.get('/:id/edit', (req, res) => {
 
 //POST
 router.post('/', (req, res) => {
-    console.log(req.body)
-    res.send('POST /places')
+    if (!req.body.pic) {
+        // Default image if one is not provided
+        req.body.pic = 'http://placekitten.com/400/400'
+    }
+    if (!req.body.city) {
+        req.body.city = 'Anytown'
+    }
+    if (!req.body.state) {
+        req.body.state = 'USA'
+    }
+    places.push(req.body)
+    res.redirect('/places')
 })
 
 router.post('/:id/rant', (req, res) => {
