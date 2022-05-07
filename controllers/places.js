@@ -67,14 +67,24 @@ router.post('/:id/rant', (req, res) => {
 })
 
 //PUT
-router.put('/:id', (res, req) => {
+router.put('/:id', (req, res) => {
     res.send('This is POST /places/'`${req.params.id}`)
 })
 
 
 //DELETE
 router.delete('/:id', (req, res) => {
-    res.send(`This is DELETE /places/${req.params.id}`)
+    let id = Number(req.params.id)
+    if(isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        places.splice(id, 1)
+        res.redirect('/places')
+    }
 })
 
 router.delete('/:id/rant/:rantId', (req, res) => {
