@@ -41,10 +41,17 @@ router.get('/:id', (req, res) => {
 
 
 router.get('/:id/edit', (req, res) => {
-    res.send(`This is GET /places/${req.params.id}/edit`)
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        res.render('places/edit', { place: places[id], id })
+    }
 })
-
-
 
 //POST
 router.post('/', (req, res) => {
