@@ -15,20 +15,22 @@ function edit_form (data) {
                         </div>
                         <div className='form-group col-sm-6'>
                             <label htmlFor="pic">Place Picture</label>
-                            <input className='form-control' type='url' id="pic" name="pic" value={data.place.name} />
+                            <input className='form-control' type='url' id="pic" name="pic" value={data.place.pic} />
                         </div>
                     </div>
-                    <div className='form-group'>
-                        <label htmlFor="city">City</label>
-                        <input className='form-control' id="city" name="city" value={data.place.name} />
+                    <div className='row'>
+                        <div className='form-group col-sm-6'>
+                            <label htmlFor="city">City</label>
+                            <input className='form-control' id="city" name="city" value={data.place.city} />
+                        </div>
+                        <div className='form-group col-sm-6'>
+                            <label htmlFor="state">State</label>
+                            <input className='form-control' id="state" name="state" value={data.place.state} />
+                        </div>
                     </div>
-                    <div className='form-group'>
-                        <label htmlFor="state">State</label>
-                        <input className='form-control' id="state" name="state" value={data.place.name} />
-                    </div>
-                    <div className='form-group'>
+                    <div className='form-group col-sm-6'>
                         <label htmlFor="cuisines">Cuisines</label>
-                        <input className='form-control' id="cuisines" name="cuisines" value={data.place.name} required />
+                        <input className='form-control' id="cuisines" name="cuisines" value={data.place.cuisines} required />
                     </div>
                     <input className='btn btn-primary' type="submit" value="Add Place" />
                 </form>
