@@ -49,6 +49,7 @@ router.post('/', (req, res) => {
     })
 })
 
+
 router.post('/:id/rant', (req, res) => {
     res.send('POST /places/:id/rant stub')
 })
