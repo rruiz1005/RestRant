@@ -7,10 +7,10 @@ function home () {
             <main>
                 <h1>REST-Rant</h1>
                 <div>
-                    <img src='/images/pancakes.jpg' alt='Pancakes'></img>
+                    <img src='/images/foodhomepage.jpg' alt='Food'></img>
                 </div>
                 <div>
-                    Photo by <a href='https://unsplash.com/@briewilly'>Chad Montano</a> on <a href='https://unsplash.com/s/photos/food'>Unsplash</a>
+                    Photo by <a href='https://unsplash.com/@covertnine'>Tim Toomey</a> on <a href='https://unsplash.com/'>Unsplash</a>
                 </div>
                 <a href='/places'>
                     <button className='btn-primary'>Places Page</button>
